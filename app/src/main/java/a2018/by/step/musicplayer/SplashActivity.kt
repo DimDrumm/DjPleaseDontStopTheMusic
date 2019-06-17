@@ -9,6 +9,9 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_activity)
-        startActivity(Intent(applicationContext, MainActivity::class.java))
+//        Thread {
+//            Thread.sleep(1000)
+            startActivity(Intent(applicationContext, MainActivity::class.java))
+//        }
     }
 }
