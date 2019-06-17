@@ -3,51 +3,26 @@ package a2018.by.step.musicplayer
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-import a2018.by.step.musicplayer.dummy.DummyContent
-import a2018.by.step.musicplayer.dummy.DummyContent.DummyItem
+import a2018.by.step.musicplayer.dummy.FakeContent
+import a2018.by.step.musicplayer.dummy.FakeContent.FakeItem
 
-/**
- * A fragment representing a list of Items.
- * Activities containing this fragment MUST implement the
- * [SongFragment.OnListFragmentInteractionListener] interface.
- */
 class SongFragment : Fragment() {
-
-    // TODO: Customize parameters
-    private var columnCount = 1
-
     private var listener: OnListFragmentInteractionListener? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        arguments?.let {
-            columnCount = it.getInt(ARG_COLUMN_COUNT)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_song_list, container, false)
-
-        // Set the adapter
         if (view is RecyclerView) {
-            with(view) {
-                layoutManager = when {
-                    columnCount <= 1 -> LinearLayoutManager(context)
-                    else -> GridLayoutManager(context, columnCount)
-                }
-                adapter = MySongRecyclerViewAdapter(DummyContent.ITEMS, listener)
-            }
+            view.layoutManager = LinearLayoutManager(context)
+            view.adapter = SongRecyclerViewAdapter(FakeContent.ITEMS, listener)
         }
         return view
     }
@@ -57,7 +32,7 @@ class SongFragment : Fragment() {
         if (context is OnListFragmentInteractionListener) {
             listener = context
         } else {
-            throw RuntimeException(context.toString() + " must implement OnListFragmentInteractionListener")
+            throw RuntimeException("$context must implement OnListFragmentInteractionListener")
         }
     }
 
@@ -79,21 +54,14 @@ class SongFragment : Fragment() {
      */
     interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        fun onListFragmentInteraction(item: DummyItem?)
+        fun onListFragmentInteraction(item: FakeItem?)
     }
 
     companion object {
-
-        // TODO: Customize parameter argument names
-        const val ARG_COLUMN_COUNT = "column-count"
-
-        // TODO: Customize parameter initialization
         @JvmStatic
-        fun newInstance(columnCount: Int) =
+        fun newInstance() =
             SongFragment().apply {
-                arguments = Bundle().apply {
-                    putInt(ARG_COLUMN_COUNT, columnCount)
+                //TODO add arguments
                 }
             }
     }
-}
