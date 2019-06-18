@@ -24,7 +24,6 @@ object FakeContent {
     private val COUNT = 25
 
     init {
-        // Add some sample items.
         for (i in 1..COUNT) {
             addItem(createFakeItem(i))
         }

@@ -11,7 +11,7 @@ import a2018.by.step.musicplayer.R
 import a2018.by.step.musicplayer.fragment.SongFragment.OnListFragmentInteractionListener
 import a2018.by.step.musicplayer.fragment.dummy.FakeContent.FakeItem
 
-import kotlinx.android.synthetic.main.recyclerView_item_song.view.*
+import kotlinx.android.synthetic.main.recycler_view_item_song.view.*
 
 class SongRecyclerViewAdapter(
     private val list: List<FakeItem>,
@@ -20,7 +20,7 @@ class SongRecyclerViewAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.recyclerView_item_song, parent, false)
+            .inflate(R.layout.recycler_view_item_song, parent, false)
         return ViewHolder(view)
     }
 
