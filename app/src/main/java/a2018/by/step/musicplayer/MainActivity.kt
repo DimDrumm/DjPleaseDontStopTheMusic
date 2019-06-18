@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity(),SongFragment.OnListFragmentInteractionL
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        supportFragmentManager.beginTransaction().replace(R.id.main_activity, SongFragment()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.main_activity, SongFragment.newInstance()).commit()
     }
 
     override fun onListFragmentInteraction(item: FakeContent.FakeItem?) {
