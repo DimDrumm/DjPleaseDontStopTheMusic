@@ -1,17 +1,16 @@
 package a2018.by.step.musicplayer.fragment
 
+import a2018.by.step.musicplayer.R
+import a2018.by.step.musicplayer.model.Song
+import a2018.by.step.musicplayer.model.TempSongRepository
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import a2018.by.step.musicplayer.R
-
-import a2018.by.step.musicplayer.fragment.dummy.FakeContent
-import a2018.by.step.musicplayer.fragment.dummy.FakeContent.FakeItem
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class SongListFragment : Fragment() {
     private var listener: OnListFragmentInteractionListener? = null
@@ -23,7 +22,7 @@ class SongListFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_song_list, container, false)
         if (view is RecyclerView) {
             view.layoutManager = LinearLayoutManager(context)
-            view.adapter = SongRecyclerViewAdapter(FakeContent.ITEMS, listener)
+            view.adapter = SongRecyclerViewAdapter(TempSongRepository.ITEMS, listener)
         }
         return view
     }
@@ -55,7 +54,7 @@ class SongListFragment : Fragment() {
      */
     interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        fun onListFragmentInteraction(item: FakeItem?)
+        fun onListFragmentInteraction(item: Int)
     }
 
     companion object {

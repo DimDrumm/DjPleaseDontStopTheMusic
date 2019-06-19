@@ -1,20 +1,18 @@
 package a2018.by.step.musicplayer.fragment
 
-import androidx.recyclerview.widget.RecyclerView
+
+import a2018.by.step.musicplayer.R
+import a2018.by.step.musicplayer.fragment.SongListFragment.OnListFragmentInteractionListener
+import a2018.by.step.musicplayer.model.Song
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import a2018.by.step.musicplayer.R
-
-
-import a2018.by.step.musicplayer.fragment.SongListFragment.OnListFragmentInteractionListener
-import a2018.by.step.musicplayer.fragment.dummy.FakeContent.FakeItem
-
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.recyclerview_item_song.view.*
 
 class SongRecyclerViewAdapter(
-    private val list: List<FakeItem>,
+    private val list: List<Song>,
     private val listener: OnListFragmentInteractionListener?
 ) : RecyclerView.Adapter<SongRecyclerViewAdapter.ViewHolder>() {
 
@@ -26,16 +24,15 @@ class SongRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = list[position]
-        holder.titleText.text = item.id
-        holder.descriptionText.text = item.content
-
-//        with(holder.view) {
-//            tag = item
-//            setOnClickListener(mOnClickListener)
-//        }
+        holder.titleText.text = item.title
+        holder.descriptionText.text = item.artist
+        holder.itemView.setOnClickListener { listener?.onListFragmentInteraction(position) }
     }
 
-    override fun getItemCount(): Int = list.size
+    override fun getItemCount(): Int {
+        val size = list.size
+        return size
+    }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val titleText: TextView = view.tv_song_title
