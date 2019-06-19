@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.recyclerview.widget.RecyclerView
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/list"
         android:name="a2018.by.step.musicplayer.fragment.SongFragment"
@@ -9,5 +8,5 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        tools:context=".fragment.SongFragment"
-        tools:listitem="@layout/recyclerView_item_song"/>
+        tools:context=".fragment.SongListFragment"
+        tools:listitem="@layout/recyclerview_item_song"/>

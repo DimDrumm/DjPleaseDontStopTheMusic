@@ -13,7 +13,7 @@ import a2018.by.step.musicplayer.R
 import a2018.by.step.musicplayer.fragment.dummy.FakeContent
 import a2018.by.step.musicplayer.fragment.dummy.FakeContent.FakeItem
 
-class SongFragment : Fragment() {
+class SongListFragment : Fragment() {
     private var listener: OnListFragmentInteractionListener? = null
 
     override fun onCreateView(
@@ -61,7 +61,7 @@ class SongFragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance() =
-            SongFragment().apply {
+            SongListFragment().apply {
                 //TODO add arguments
             }
     }
