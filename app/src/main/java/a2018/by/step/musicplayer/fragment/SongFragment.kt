@@ -1,7 +1,9 @@
 package a2018.by.step.musicplayer.fragment
 
 import a2018.by.step.musicplayer.R
+import a2018.by.step.musicplayer.model.TempSongRepository
 import android.content.Context
+import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,11 +11,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.fragment_song.*
 
 private const val ARG_ID = "arg_id"
 
 class SongFragment : Fragment() {
-    private var songId: Int? = null
+    private var songId: Int = 0
     private var listenerSong: OnSongFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +32,15 @@ class SongFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_song, container, false)
         view.findViewById<TextView>(R.id.tv_song_info).text = "Play song #$songId"
+        btn_play.setOnClickListener { play() }
         return view
+    }
+
+    private fun play() {
+//        val player = MediaPlayer()
+//        val song = TempSongRepository.ITEMS[songId]
+//        player.setDataSource(context,song.uri)
+//        player.setAudioStreamType()
     }
 
     // TODO: Rename method, update argument and hook method into UI event
