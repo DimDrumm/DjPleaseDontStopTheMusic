@@ -9,17 +9,18 @@ import android.view.View
 import android.view.ViewGroup
 
 import a2018.by.step.musicplayer.R
+import android.widget.TextView
 
 private const val ARG_ID = "arg_id"
 
 class SongFragment : Fragment() {
-    private var param1: String? = null
+    private var songId: Int? = null
     private var listenerSong: OnSongFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_ID)
+            songId = it.getInt(ARG_ID)
         }
     }
 
@@ -27,7 +28,9 @@ class SongFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_song, container, false)
+        val view = inflater.inflate(R.layout.fragment_song, container, false)
+        view.findViewById<TextView>(R.id.tv_song_info).text = "Play song $songId"
+        return view
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -40,7 +43,7 @@ class SongFragment : Fragment() {
         if (context is OnSongFragmentInteractionListener) {
             listenerSong = context
         } else {
-            throw RuntimeException(context.toString() + " must implement OnSongFragmentInteractionListener")
+//            throw RuntimeException(context.toString() + " must implement OnSongFragmentInteractionListener")
         }
     }
 
@@ -66,11 +69,11 @@ class SongFragment : Fragment() {
     }
 
     companion object {
-        @JvmStaticm
-        fun newInstance(param1: String) =
+        @JvmStatic
+        fun newInstance(param1: Int) =
             SongFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_ID, param1)
+                    putInt(ARG_ID, param1)
                 }
             }
     }
