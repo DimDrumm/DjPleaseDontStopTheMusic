@@ -3,6 +3,7 @@ package a2018.by.step.musicplayer
 import a2018.by.step.musicplayer.fragment.SongFragment
 import a2018.by.step.musicplayer.fragment.SongListFragment
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import timber.log.Timber
 
@@ -13,6 +14,7 @@ class MainActivity : AppCompatActivity(), SongListFragment.ISongItemClickListene
             R.id.fl_container_song,
             SongFragment.newInstance(item)
         ).commit()
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
