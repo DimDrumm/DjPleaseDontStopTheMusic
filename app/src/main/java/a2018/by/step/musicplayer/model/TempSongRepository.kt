@@ -16,7 +16,7 @@ object TempSongRepository {
             Timber.d(it)
             ITEMS.add(
                 Song(
-                    it.substring(0, it.lastIndexOf(".mp3") - 1),
+                    it.substring(0, it.lastIndexOf(".mp3")),
                     "Unknown Artist",
                     0, Uri.parse(it)
                 )
