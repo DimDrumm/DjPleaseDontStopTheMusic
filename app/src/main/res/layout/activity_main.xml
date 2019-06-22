@@ -4,8 +4,26 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity"
-        android:orientation=""
->
+        android:orientation="vertical"
+        android:weightSum="100"
+        tools:context=".MainActivity">
+
+    <FrameLayout
+            android:id="@+id/fl_container_song_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="85">
+    </FrameLayout>
+
+    <FrameLayout
+            android:id="@+id/fl_container_song"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="15">
+    </FrameLayout>
+
 
 </LinearLayout>
+
+
+
