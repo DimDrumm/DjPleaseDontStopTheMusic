@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment
 private const val ARG_ID = "arg_id"
 
 class SongFragment : Fragment() {
+    private val mediaPlayer = MediaPlayer()
     private var isPlaying = false
     private var songId: Int = 0
     private var listenerSong: OnSongFragmentInteractionListener? = null
@@ -35,14 +36,30 @@ class SongFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_song, container, false)
         view.findViewById<TextView>(R.id.tv_song_info).text = TempSongRepository.ITEMS[songId].title
         val btnPlay = view.findViewById<View>(R.id.btn_play)
-        btnPlay.setOnClickListener { play() }
-        
+        val btnPause = view.findViewById<View>(R.id.btn_pause)
+        btnPlay.setOnClickListener {
+            play()
+            isPlaying = true
+            it.visibility = View.GONE
+            btnPause.visibility = View.VISIBLE
+        }
+        btnPause.setOnClickListener {
+            stop()
+            isPlaying = false
+            it.visibility = View.GONE
+            btnPlay.visibility = View.VISIBLE
+        }
         return view
+    }
+
+    private fun stop() {
+        mediaPlayer.stop()
+        mediaPlayer.reset()
     }
 
     private fun play() {
         val song = TempSongRepository.ITEMS[songId]
-        MediaPlayer().apply {
+        mediaPlayer.apply {
             setAudioAttributes(
                 AudioAttributes.Builder().setContentType(AudioAttributes.CONTENT_TYPE_MUSIC).build()
             )
