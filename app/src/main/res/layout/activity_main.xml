@@ -11,10 +11,9 @@
     <FrameLayout
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:background="#550000"
             android:id="@+id/fl_container_song"
             android:layout_width="match_parent"
-            android:layout_height="150dp">
+            android:layout_height="@dimen/size_fragment_song">
     </FrameLayout>
 
     <FrameLayout
