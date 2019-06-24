@@ -3,6 +3,9 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="a2018.by.step.musicplayer">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <application
             android:name=".MusicPlayerApp"
             android:allowBackup="false"
@@ -15,7 +18,6 @@
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>

@@ -12,5 +12,6 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash_activity)
         TempSongRepository.ITEMS
         startActivity(Intent(applicationContext, MainActivity::class.java))
+        finish()
     }
 }
